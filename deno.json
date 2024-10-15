@@ -1,0 +1,17 @@
+{
+  "nodeModulesDir": "none",
+  "npmRegistry": "http:npm.yunmaolink.com",
+  "lint": {
+    "include": [
+      "src/"
+    ],
+    "exclude": [],
+    "rules": {
+      "tags": [
+        "recommended"
+      ],
+      "include": [],
+      "exclude": []
+    }
+  }
+}

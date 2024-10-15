@@ -1,0 +1,98 @@
+@import "./umo.less";
+@import "./html-wrapper.less";
+
+html,
+body {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  #app {
+    height: 100vh;
+    width: 100%;
+    background: #f7f8fc;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(#909399, 0.3);
+    border-radius: 8px;
+    &:hover {
+      background-color: rgba(#909399, 0.5);
+    }
+  }
+}
+* {
+  box-sizing: border-box;
+}
+
+.ant-menu-inline-collapsed-tooltip {
+  --antd-arrow-background-color: white;
+  .ant-tooltip-inner {
+    color: #333;
+    background-color: white;
+  }
+}
+.ant-modal div[aria-hidden="true"] {
+  display: none !important;
+}
+
+.bg-image {
+  background-image: url("@/assets/image/hub/img_bg2@2x.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.page {
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px;
+  user-select: text;
+}
+
+/* 可公用的 class */
+.ellipsis {
+  overflow: hidden; /*内容超出后隐藏*/
+  text-overflow: ellipsis; /*超出内容显示为省略号*/
+  white-space: nowrap;
+}
+
+// 修改antv的样式
+.ant-tooltip {
+  .ant-tooltip-inner {
+    background: white;
+    color: #636975;
+    max-height: 50vh;
+    overflow: auto;
+  }
+  .ant-tooltip-arrow::before {
+    background: white;
+  }
+}
+.ant-menu-inline-collapsed-tooltip {
+  display: none;
+}
+
+.ant-modal:not(.ant-modal-confirm) {
+  .ant-modal-content {
+    padding: 0;
+    .ant-modal-header {
+      padding: 20px 24px;
+      margin-bottom: 0;
+      border-bottom: 1px solid #d9d9d9;
+    }
+    .ant-modal-body {
+      padding: 0 24px;
+    }
+    .ant-modal-footer {
+      padding: 0 24px 20px;
+      .ant-btn {
+        height: 40px;
+        padding: 4px 18px;
+        border-radius: 8px;
+      }
+    }
+  }
+}

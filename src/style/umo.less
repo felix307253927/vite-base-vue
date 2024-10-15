@@ -1,0 +1,289 @@
+:root {
+  --umo-text-selection-background: #3569e9 !important;
+  --umo-content-line-number-color: #7f7b7b !important;
+}
+
+.editor-container .umo-text-selection {
+  color: #ffff !important;
+  background-color: var(--umo-text-selection-background) !important;
+}
+
+#contentElementId {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  border-radius: 6px;
+}
+
+//umo editor
+.umo-container {
+  .node-view .image img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+
+  p,
+  mark {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .umo-toolbar {
+    p {
+      margin: 0 !important;
+    }
+
+    .button-content {
+      .icon {
+        background-color: transparent !important;
+      }
+    }
+
+    .base-menu {
+      .virtual-group {
+        &:nth-child(2) {
+          .menu-button-wrap:nth-child(3) {
+            display: none !important;
+          }
+        }
+        &:nth-child(3) {
+          .menu-button-wrap:last-child {
+            display: none !important;
+          }
+        }
+
+        &:nth-child(4) {
+          @selectors: 3, 8, 9, 10, 11;
+
+          each(@selectors, {
+            .menu-button-wrap:nth-child(@{value}) {
+              display: none !important;
+            }
+          });
+        }
+
+        &:nth-child(6) {
+          display: none !important;
+        }
+      }
+    }
+
+    .insert-menu {
+      @selectors: 3, 4;
+
+      each(@selectors, {
+      .virtual-group:nth-child(@{value}) {
+        display: none !important;
+      }
+    });
+
+      .virtual-group:nth-child(2) {
+        .menu-button-wrap {
+          display: none;
+        }
+
+        @selectors: 2, 7;
+
+        each(@selectors, {
+      .menu-button-wrap:nth-child(@{value}) {
+        display: block !important;
+      }
+    });
+      }
+    }
+
+    .page-menu {
+      .virtual-group:nth-child(3),
+      .virtual-group:nth-child(5) {
+        display: none !important;
+      }
+
+      .virtual-group:nth-child(4) {
+        .menu-button-wrap {
+          display: none;
+        }
+
+        @selectors: 2, 3;
+
+        each(@selectors, {
+      .menu-button-wrap:nth-child(@{value}) {
+        display: block !important;
+      }
+    });
+      }
+    }
+  }
+
+  .umo-popup__content .umo-select__dropdown-inner {
+    ul {
+      li[title="工具"],
+      li[title="导出"] {
+        display: none !important;
+      }
+    }
+  }
+
+  // .es-drager {
+  //   width: 300px;
+  //   height: 200px;
+  // }
+
+  // // table
+  // table {
+  //   tr,
+  //   td {
+  //     .es-drager {
+  //       width: 200px;
+  //       height: 100px;
+  //     }
+  //   }
+  // }
+
+  .bar-left {
+    .umo-button--variant-text {
+      &:nth-child(2),
+      &:nth-child(3),
+      &:nth-child(5),
+      &:nth-child(6) {
+        display: none;
+      }
+    }
+
+    .bar-split {
+      display: none !important;
+    }
+
+    .simple-text {
+      &::before {
+        content: "";
+        height: 12px;
+        width: 1px;
+        background-color: rgba(0, 0, 0, 0.08);
+        margin: 0 10px;
+        display: inline-block;
+        margin-top: 2px;
+      }
+    }
+  }
+
+  .bar-right {
+    .bar-button:first-child,
+    .lang-button {
+      display: none;
+    }
+  }
+
+  .classic-menu {
+    .is-slot {
+      flex: 1;
+      justify-content: flex-end;
+    }
+  }
+
+  // .scrollable-content .classic-menu {
+  //   .virtual-group {
+  //     &:nth-child(4) {
+  //       .menu-button-wrap:first-child {
+  //         display: none;
+  //       }
+  //     }
+
+  // &:nth-child(6) {
+  //   display: none;
+  // }
+  //   }
+  // }
+
+  .toolbar-actions {
+    display: none !important;
+  }
+}
+
+.umo-main {
+  .block-menu-dropdown {
+    .umo-dropdown__menu--right {
+      div {
+        @selectors: 8, 9;
+        each(@selectors, {
+          &:nth-child(@{value}) {
+            display: none !important;
+          }
+        });
+      }
+      .umo-dropdown__submenu-wrapper {
+        ul > div {
+          @selectors: 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16;
+
+          each(@selectors, {
+            &:nth-child(@{value}) {
+              display: none !important;
+            }
+          });
+        }
+      }
+    }
+  }
+}
+
+.ai-model-container {
+  .ant-dropdown-menu-title-content {
+    flex: none !important;
+  }
+
+  .ant-dropdown-menu-submenu {
+    min-width: 120px;
+  }
+
+  .ant-dropdown-menu-submenu-title {
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .ant-dropdown-menu-item {
+    padding-left: 12px;
+  }
+
+  .ant-dropdown-link {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+
+  .ant-dropdown {
+    .ant-dropdown-menu {
+      .ant-dropdown-menu {
+        padding: 10px;
+      }
+    }
+  }
+}
+
+//fix: 因样式问题导致大纲定位显示不全
+.zoomable-container {
+  padding: 10px 50px 0 50px !important;
+
+  .umo-scrollbar {
+    overflow: auto !important;
+  }
+
+  .zoomable-content {
+    height: 100% !important;
+    min-height: 100% !important;
+  }
+}
+
+.umo-editor-bubble-menu {
+  .umo-button[overlay-class-name="highlight-dropdown"] {
+    display: none !important;
+  }
+}
+
+h1 {
+  display: block;
+  font-size: 2em !important;
+}
+
+.umo-watermark {
+  padding: 0.8cm 2.8cm !important;
+}
